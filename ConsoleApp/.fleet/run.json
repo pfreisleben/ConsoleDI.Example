@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "dotnet",
+            "name": "Run ConsoleApp",
+            "projectPath": "./ConsoleApp/ConsoleDI.Example.csproj",
+            "exePath": "./ConsoleApp/bin/Debug/.net6.0/ConsoleDI.Example.exe",
+            "args": [],
+        },
+
+    ]
+}
