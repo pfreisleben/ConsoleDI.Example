@@ -1,20 +1,16 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using ConsoleApp.Operation.Interfaces;
 using ConsoleApp.Operation;
+using ConsoleDI.Example.Extensions;
 
 try
 {
-    // Crio um builder de host genéricojh
+    // Crio um builder de host genérico
     IHostBuilder host = Host.CreateDefaultBuilder(args);
 
     // Configuro os serviços do host
     host.ConfigureServices((_, services) =>
-        services
-            .AddTransient<ITransientOperation, DefaultOperation>()
-            .AddScoped<IScopedOperation, DefaultOperation>()
-            .AddSingleton<ISingletonOperation, DefaultOperation>()
-            .AddTransient<OperationLogger>()
+        services.AddDependencyInjection()
     );
     using IHost app = host.Build();
     ExemplifyingScoping(app.Services, "Scope 1");
@@ -39,4 +35,5 @@ static void ExemplifyingScoping(IServiceProvider services, string scope)
 
     logger = provider.GetRequiredService<OperationLogger>();
     logger.LogOperations($"{scope}-Call 2 .GetRequiredService<OperationLogger>");
+    Console.WriteLine("..");
 }
