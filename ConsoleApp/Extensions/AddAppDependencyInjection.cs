@@ -9,10 +9,9 @@ public static class AddAppDependencyInjection
     public static IServiceCollection AddDependencyInjection(this IServiceCollection services)
     {
         services.AddTransient<ITransientOperation, DefaultOperation>()
-            .AddScoped<IScopedOperation, DefaultOperation>()
-            .AddSingleton<ISingletonOperation, DefaultOperation>()
-            .AddTransient<OperationLogger>();
+                .AddScoped<IScopedOperation, DefaultOperation>()
+                .AddSingleton<ISingletonOperation, DefaultOperation>()
+                .AddTransient<OperationLogger>();
         return services;
     }
-    
 }

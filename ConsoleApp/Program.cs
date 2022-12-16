@@ -8,7 +8,7 @@ try
     // Crio um builder de host genérico
     IHostBuilder host = Host.CreateDefaultBuilder(args);
 
-    // Configuro os serviços do host
+    // Configuro os serviços do host no builder
     host.ConfigureServices((_, services) =>
         services.AddDependencyInjection()
     );
